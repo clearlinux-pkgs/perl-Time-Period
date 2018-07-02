@@ -1,0 +1,101 @@
+libtime-period-perl (1.25-1) unstable; urgency=medium
+
+  * Take over for the Debian Perl Group; Closes: #862647 -- RFA/ITA
+  * debian/control: Added: Vcs-Git field (source stanza); Vcs-Browser
+    field (source stanza); Homepage field (source stanza). Changed:
+    Maintainer set to Debian Perl Group <pkg-perl-
+    maintainers@lists.alioth.debian.org> (was: Roderick Schertler
+    <roderick@argon.org>).
+  * Replace (build-)dependency on ancient version of perl with a dependency on
+    perl without a version (as permitted by Debian Policy 3.8.3).
+  * debian/watch: use metacpan-based URL.
+  * Mark package as autopkgtest-able.
+  * Declare compliance with Debian Policy 4.0.0.
+  * Switch to source format "3.0 (quilt)".
+  * Don't install README anymore.
+  * debian/copyright: switch formatting to Copyright-Format 1.0.
+  * Add /me to Uploaders.
+  * Mention module name in long description.
+
+  * New upstream release.
+  * debian/copyright: update Upstream-Contact.
+
+ -- gregor herrmann <gregoa@debian.org>  Fri, 04 Aug 2017 12:41:06 -0400
+
+libtime-period-perl (1.20-8.2) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * update debhelper usage.
+    closes:#800235
+  * Updated copyright file to current Debian policy requirements.
+  * Updated to policy 3.9.6.
+
+ -- Paul Slootman <paul@debian.org>  Fri, 22 Jan 2016 14:58:11 +0100
+
+libtime-period-perl (1.20-8.1) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * Fix "FTBFS with perl 5.22 in experimental (MakeMaker changes)":
+    use DESTDIR in debian/rules.
+    (Closes: #795634)
+
+ -- gregor herrmann <gregoa@debian.org>  Wed, 26 Aug 2015 18:30:51 +0200
+
+libtime-period-perl (1.20-8) unstable; urgency=low
+
+  * Drop /usr/doc symlink by rebuilding with newer debhelper (closes: #359529).
+  * Change section to "perl".
+  * Add debian/watch.
+
+ -- Roderick Schertler <roderick@argon.org>  Fri, 26 May 2006 09:05:02 -0400
+
+libtime-period-perl (1.20-7) unstable; urgency=low
+
+  * Don't install extraneous empty directories.
+
+ -- Roderick Schertler <roderick@argon.org>  Tue, 31 Jul 2001 10:45:59 -0400
+
+libtime-period-perl (1.20-6) unstable; urgency=low
+
+  * Update to policy 3.5.2 (closes: #91198, #91564).
+  * Update to latest Perl policy.
+
+ -- Roderick Schertler <roderick@argon.org>  Mon,  9 Apr 2001 08:25:38 -0400
+
+libtime-period-perl (1.20-5) unstable; urgency=low
+
+  * Simple updates for 3.0.0 standards.
+  * Simple updates for new Perl policy.
+
+ -- Roderick Schertler <roderick@argon.org>  Thu, 15 Jul 1999 10:55:56 -0400
+
+libtime-period-perl (1.20-4) unstable; urgency=low
+
+  * Stop running dh_du.
+  * Oops, build in binary-indep, not binary-arch.
+
+ -- Roderick Schertler <roderick@argon.org>  Tue, 10 Mar 1998 13:47:28 -0500
+
+libtime-period-perl (1.20-3) unstable; urgency=low
+
+  * Update FSF address.
+  * Build with debhelper 0.60 fixes permsissions problems.
+  * Update Standards-Version to 2.4.0.0.
+
+ -- Roderick Schertler <roderick@argon.org>  Tue, 10 Feb 1998 20:14:10 -0500
+
+libtime-period-perl (1.20-2) unstable; urgency=low
+
+  * Change section to interpreters.
+  * Add RCS id tags.
+  * Pass -isp to dpkg-gencontrol.
+
+ -- Roderick Schertler <roderick@argon.org>  Sat,  7 Feb 1998 23:57:40 -0500
+
+libtime-period-perl (1.20-1) unstable; urgency=low
+
+  * Initial version.
+
+ -- Roderick Schertler <roderick@argon.org>  Sun, 18 Jan 1998 16:05:56 -0500
+
+$Id: changelog,v 1.9 2006-05-26 13:05:36 roderick Exp $
