@@ -4,7 +4,7 @@
 #
 Name     : perl-Time-Period
 Version  : 1.25
-Release  : 6
+Release  : 7
 URL      : https://cpan.metacpan.org/authors/id/P/PB/PBOYD/Time-Period-1.25.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/P/PB/PBOYD/Time-Period-1.25.tar.gz
 Source1  : http://http.debian.net/debian/pool/main/libt/libtime-period-perl/libtime-period-perl_1.25-1.debian.tar.xz
