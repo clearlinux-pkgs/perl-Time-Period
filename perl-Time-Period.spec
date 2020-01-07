@@ -4,7 +4,7 @@
 #
 Name     : perl-Time-Period
 Version  : 1.25
-Release  : 9
+Release  : 10
 URL      : https://cpan.metacpan.org/authors/id/P/PB/PBOYD/Time-Period-1.25.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/P/PB/PBOYD/Time-Period-1.25.tar.gz
 Source1  : http://http.debian.net/debian/pool/main/libt/libtime-period-perl/libtime-period-perl_1.25-1.debian.tar.xz
@@ -12,6 +12,7 @@ Summary  : 'A Perl module to deal with time periods.'
 Group    : Development/Tools
 License  : Artistic-1.0 Artistic-1.0-Perl GPL-1.0
 Requires: perl-Time-Period-license = %{version}-%{release}
+Requires: perl-Time-Period-perl = %{version}-%{release}
 BuildRequires : buildreq-cpan
 
 %description
@@ -22,6 +23,7 @@ be distributed and or modified under the conditions given by Perl.
 Summary: dev components for the perl-Time-Period package.
 Group: Development
 Provides: perl-Time-Period-devel = %{version}-%{release}
+Requires: perl-Time-Period = %{version}-%{release}
 
 %description dev
 dev components for the perl-Time-Period package.
@@ -35,18 +37,28 @@ Group: Default
 license components for the perl-Time-Period package.
 
 
+%package perl
+Summary: perl components for the perl-Time-Period package.
+Group: Default
+Requires: perl-Time-Period = %{version}-%{release}
+
+%description perl
+perl components for the perl-Time-Period package.
+
+
 %prep
 %setup -q -n Time-Period-1.25
-cd ..
-%setup -q -T -D -n Time-Period-1.25 -b 1
+cd %{_builddir}
+tar xf %{_sourcedir}/libtime-period-perl_1.25-1.debian.tar.xz
+cd %{_builddir}/Time-Period-1.25
 mkdir -p deblicense/
-mv %{_topdir}/BUILD/debian/* %{_topdir}/BUILD/Time-Period-1.25/deblicense/
+cp -r %{_builddir}/debian/* %{_builddir}/Time-Period-1.25/deblicense/
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
+export LANG=C.UTF-8
 if test -f Makefile.PL; then
 %{__perl} Makefile.PL
 make  %{?_smp_mflags}
@@ -56,7 +68,7 @@ else
 fi
 
 %check
-export LANG=C
+export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
@@ -65,8 +77,7 @@ make TEST_VERBOSE=1 test
 %install
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/perl-Time-Period
-cp LICENSE %{buildroot}/usr/share/package-licenses/perl-Time-Period/LICENSE
-cp deblicense/copyright %{buildroot}/usr/share/package-licenses/perl-Time-Period/deblicense_copyright
+cp %{_builddir}/Time-Period-1.25/LICENSE %{buildroot}/usr/share/package-licenses/perl-Time-Period/bb30d357e93b6e8da4e69bb61262c52e8f5afd7e
 if test -f Makefile.PL; then
 make pure_install PERL_INSTALL_ROOT=%{buildroot} INSTALLDIRS=vendor
 else
@@ -79,7 +90,6 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.28.2/Time/Period.pm
 
 %files dev
 %defattr(-,root,root,-)
@@ -87,5 +97,8 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/perl-Time-Period/LICENSE
-/usr/share/package-licenses/perl-Time-Period/deblicense_copyright
+/usr/share/package-licenses/perl-Time-Period/bb30d357e93b6e8da4e69bb61262c52e8f5afd7e
+
+%files perl
+%defattr(-,root,root,-)
+/usr/lib/perl5/vendor_perl/5.30.1/Time/Period.pm
