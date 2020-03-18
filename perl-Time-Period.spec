@@ -4,7 +4,7 @@
 #
 Name     : perl-Time-Period
 Version  : 1.25
-Release  : 10
+Release  : 11
 URL      : https://cpan.metacpan.org/authors/id/P/PB/PBOYD/Time-Period-1.25.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/P/PB/PBOYD/Time-Period-1.25.tar.gz
 Source1  : http://http.debian.net/debian/pool/main/libt/libtime-period-perl/libtime-period-perl_1.25-1.debian.tar.xz
@@ -101,4 +101,4 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files perl
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.30.1/Time/Period.pm
+/usr/lib/perl5/vendor_perl/5.30.2/Time/Period.pm
